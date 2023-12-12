@@ -64,7 +64,7 @@ def line_plot(graphs, labelx, labely, title):
     plt.title(title) # Applies title to graph
     plt.ylabel(labely) # Applies label to y axis
     plt.xlabel(labelx) # Applies label to x axis
-    plt.legend(leglables, loc='upper right') # Displays legend
+    plt.legend(leglables, loc='best') # Displays legend
     plt.grid() # Shows grid on x and y axis
     plt.show() # Shows the line graph in a separate window
 
