@@ -64,7 +64,8 @@ python3 /path/to/installation/LorPlot/LorPlot.py
 ```
 
 **Windows:**
-NOTE: For windows the code needs to be modified with / instead of \ in all paths. It is recommended to use WSL instead.
+
+NOTE: For windows the code needs to be modified with \ instead of / in all paths in all files first. It is recommended to use WSL instead.
 ```
 python C:\\path\to\installation\LorPlot\LorPlot.py
 ```
