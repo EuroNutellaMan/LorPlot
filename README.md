@@ -16,13 +16,13 @@ Simple CLI program to make line and bar plots. Made for a formative activity at 
 - Catppuccin 1.3.2 or newer
 - Matplotlib 3.8.0 or newer
 - Numpy 1.26.1 or newer
+- Linux or MacOS (See usage for Widnows)
 
 ### Python environment
 0. Create and enter your python environment if you haven't already (optional except in some linux distributions)
 ```
 python -m venv /path/to/environment
 source /path/to/environment/bin/activate # On Linux or MacOS
-path\to\environment\Scripts\Activate.bat # On windows cmd.exe, if using powershell use Activate.ps1 instead of Activate.bat
 ```
 1. Install dependencies
 ```
@@ -30,7 +30,7 @@ pip install colorama catppuccin matplotlib numpy
 ```
 2. Clone this repository wherever
 ```
-cd /path/to/installation # For windows use \ instead of /
+cd /path/to/installation
 git clone https://github.com/EuroNutellaMan/LorPlot.git
 ```
 3. You will find the program in **/path/to/installation/LorPlot**
@@ -55,7 +55,8 @@ git clone https://github.com/EuroNutellaMan/LorPlot.git
 3. You will find the program in **/path/to/installation/LorPlot**
 
 ## Usage
-On your preferred terminal run
+Write the data in the csv file, with the first column being values for x (line plot) or labels (bar plot), the second column being values for the y axis, and the third column being the standard deviation.
+On your preferred terminal run:
 
 **Linux and macOS:**
 ```
@@ -63,8 +64,10 @@ python3 /path/to/installation/LorPlot/LorPlot.py
 ```
 
 **Windows:**
+
+NOTE: For windows the code needs to be modified with \ instead of / in all paths in all files first. It is recommended to use WSL instead.
 ```
-python \path\to\installation\LorPlot\LorPlot.py
+python C:\\path\to\installation\LorPlot\LorPlot.py
 ```
 
 ## Notes
