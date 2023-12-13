@@ -24,8 +24,8 @@ BLUE = rgbansi(Flavour.mocha().blue.rgb)
 # Define paths
 install_path = os.path.abspath(__file__)
 install_dir = os.path.dirname(install_path)
-lineplotter = install_dir + 'lineplotter.py'
-barplotter = install_dir + 'barplotter.py'
+lineplotter = install_dir + '/lineplotter.py'
+barplotter = install_dir + '/barplotter.py'
 
 # Function to choose type of graph
 def selector():
