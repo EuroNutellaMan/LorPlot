@@ -21,6 +21,12 @@ RED = rgbansi(Flavour.mocha().red.rgb)
 GREEN = rgbansi(Flavour.mocha().green.rgb)
 BLUE = rgbansi(Flavour.mocha().blue.rgb)
 
+# Define paths
+install_path = os.path.abspath(__file__)
+install_dir = os.path.dirname(install_path)
+lineplotter = install_dir + 'lineplotter.py'
+barplotter = install_dir + 'barplotter.py'
+
 # Function to choose type of graph
 def selector():
     os.system('clear') # Clears the terminal
@@ -32,9 +38,9 @@ def selector():
     if choice == '0': # Exits the program
         print(RED + 'Exiting.')
     elif choice == '1': # Starts the line plotter
-        subprocess.Popen(['python3', 'lineplotter.py']).wait()
+        subprocess.Popen(['python3', lineplotter]).wait()
     elif choice == '2': # Starts the bar plotter
-        subprocess.Popen(['python3', 'barplotter.py']).wait()
+        subprocess.Popen(['python3', barplotter]).wait()
     else: # Restarts in case of bad prompt from user
         print(RED + 'Invalid input! Try again!')
         print(RED + 'Restarting in 3...')

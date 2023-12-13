@@ -44,8 +44,13 @@ def ColorChooser():
         else:
             a = 1 # Continues the loop
 
+# Define paths
+install_path = os.path.abspath(__file__)
+install_dir = os.path.dirname(install_path)
+csv_file = install_dir + 'plot.csv'
+
 # Reads values from plot.csv and elaborates them
-with open('plot.csv', 'r') as fl:
+with open(csv_file, 'r') as fl:
     lines = fl.readlines()
 
 for line in lines:
