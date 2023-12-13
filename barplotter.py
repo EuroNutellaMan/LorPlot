@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from catppuccin import Flavour
 import numpy as np
 import random
+import os
 
 # Initialises colorama
 init(autoreset = True)
