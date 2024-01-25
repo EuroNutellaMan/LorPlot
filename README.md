@@ -24,14 +24,15 @@ Simple CLI program to make line and bar plots. Made for a formative activity at 
 python -m venv /path/to/environment
 source /path/to/environment/bin/activate # On Linux or MacOS
 ```
-1. Install dependencies
-```
-pip install colorama catppuccin matplotlib numpy
-```
-2. Clone this repository wherever
+1. Clone this repository wherever
 ```
 cd /path/to/installation
 git clone https://github.com/EuroNutellaMan/LorPlot.git
+cd LorPlot
+```
+2. Install dependencies
+```
+pip install -r requirements.txt
 ```
 3. You will find the program in **/path/to/installation/LorPlot**
 
