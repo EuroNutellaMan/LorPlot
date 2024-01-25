@@ -20,26 +20,30 @@ RED = rgbansi(Flavour.mocha().red.rgb)
 GREEN = rgbansi(Flavour.mocha().green.rgb)
 BLUE = rgbansi(Flavour.mocha().blue.rgb)
 PURPLE = rgbansi(Flavour.mocha().mauve.rgb)
-ORANGE = rgbansi(Flavour.mocha().maroon.rgb)
+ORANGE = rgbansi(Flavour.mocha().peach.rgb)
+BROWN = rgbansi(Flavour.mocha().maroon.rgb)
+CYAN = rgbansi(Flavour.mocha().sky.rgb)
+PINK = rgbansi(Flavour.mocha().pink.rgb)
+OLIVE = rgbansi(Flavour.mocha().rosewater.rgb)
+GRAY = rgbansi(Flavour.mocha().mantle.rgb)
 
 # Defining variables
 xvalues = [] # Labels for each bar
 yvalues = [] # Values for each bar
 stddevs = [] # Standard deviation for each bar
 graph = []
-av_colors = ['tab:blue', 'tab:red', 'tab:orange', 'tab:green', 'tab:purple'] # Colors available for the bars
+av_colors = ['tab:blue', 'tab:red', 'tab:orange', 'tab:green', 'tab:purple', 'tab:brown', 'tab:cyan', 'tab:pink', 'tab:olive', 'tab:gray'] # Colors available for the bars
 colors = [] # Colors chosen for the bar
-prev_choice1 = ''
-prev_choice2 = ''
-prev_choice3 = ''
-prev_choice4 = ''
+prev_choices = []
 
 # Randomly chooses a color sequence
 def ColorChooser():
+    if len(prev_choices) == len(av_colors) - 1:
+        prev_choices.pop(-1)
     a = 1
     while a == 1:
         choice = random.choice(av_colors) # Randomly choses a color
-        if choice != prev_choice1 and choice != prev_choice2 and choice != prev_choice3 and choice != prev_choice4: # Makes sure the chosen color is different than the ones chosen before
+        if choice not in prev_choices: # Makes sure the chosen color is different than the ones chosen before
             a = 0 # Breaks the loop
             return choice
         else:
@@ -75,17 +79,19 @@ if clrm == 'y':
     print(ORANGE + '2: Orange')
     print(GREEN + '3: Green')
     print(PURPLE + '4: Purple')
+    print(BROWN + '5: Brown')
+    print(CYAN + '6: Cyan')
+    print(PINK + '7: Pink')
+    print(OLIVE + '8: Olive')
+    print(GRAY + '9: Gray')
     for i in range(len(xvalues)): # Asks user to set a color for each value
-        chosen = int(input(f'Select color for {xvalues[i]}: [0-4] '))
+        chosen = int(input(f'Select color for {xvalues[i]}: [0-9] '))
         colors.append(av_colors[chosen])
 else:
     for i in range(len(xvalues)): # Randomly applies a color sequence
         chosen = ColorChooser()
         colors.append(chosen)
-        prev_choice4 = prev_choice3 # Refresh choices
-        prev_choice3 = prev_choice2
-        prev_choice2 = prev_choice1
-        prev_choice1 = chosen
+        prev_choices.insert(0, chosen) # Refresh choices
 
 # Asks user for basic labels
 title = input('Title: ')
