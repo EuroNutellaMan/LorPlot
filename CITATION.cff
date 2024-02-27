@@ -1,0 +1,19 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: LorPlot
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Lorenzo
+    family-names: Brzek
+    email: lorenzo.brzek@proton.me
+    affiliation: University of Florence
+repository-code: 'https://github.com/EuroNutellaMan/LorPlot'
+abstract: Simple CLI program to make line and bar plots.
+license: MIT
+version: 1.0.0
+date-released: '2024-02-27'
