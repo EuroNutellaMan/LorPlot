@@ -3,7 +3,7 @@
 # by Lorenzo Brzek
 #
 from colorama import init, Fore, Style
-from catppuccin import Flavour
+from catppuccin import PALETTE
 import subprocess
 import time
 import os
@@ -13,13 +13,13 @@ init(autoreset = True)
 
 # Function to convert rgb values in ansi code
 def rgbansi(rgb_color):
-    return f"\033[38;2;{rgb_color[0]};{rgb_color[1]};{rgb_color[2]}m"
+    return f"\033[38;2;{rgb_color.r};{rgb_color.g};{rgb_color.b}m"
 
 # Defines catppuccin colors
-YELLOW = rgbansi(Flavour.mocha().yellow.rgb)
-RED = rgbansi(Flavour.mocha().red.rgb)
-GREEN = rgbansi(Flavour.mocha().green.rgb)
-BLUE = rgbansi(Flavour.mocha().blue.rgb)
+YELLOW = rgbansi(PALETTE.mocha.colors.yellow.rgb)
+RED = rgbansi(PALETTE.mocha.colors.red.rgb)
+GREEN = rgbansi(PALETTE.mocha.colors.green.rgb)
+BLUE = rgbansi(PALETTE.mocha.colors.blue.rgb)
 
 # Define paths
 install_path = os.path.abspath(__file__)

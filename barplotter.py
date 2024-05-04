@@ -3,7 +3,7 @@
 #
 from colorama import init, Fore, Style
 import matplotlib.pyplot as plt
-from catppuccin import Flavour
+from catppuccin import PALETTE
 import numpy as np
 import random
 import os
@@ -13,19 +13,19 @@ init(autoreset = True)
 
 # Function to convert rgb values in ansi code
 def rgbansi(rgb_color):
-    return f"\033[38;2;{rgb_color[0]};{rgb_color[1]};{rgb_color[2]}m"
+    return f"\033[38;2;{rgb_color.r};{rgb_color.g};{rgb_color.b}m"
 
 # Defining catppuccin colors
-RED = rgbansi(Flavour.mocha().red.rgb)
-GREEN = rgbansi(Flavour.mocha().green.rgb)
-BLUE = rgbansi(Flavour.mocha().blue.rgb)
-PURPLE = rgbansi(Flavour.mocha().mauve.rgb)
-ORANGE = rgbansi(Flavour.mocha().peach.rgb)
-BROWN = rgbansi(Flavour.mocha().maroon.rgb)
-CYAN = rgbansi(Flavour.mocha().sky.rgb)
-PINK = rgbansi(Flavour.mocha().pink.rgb)
-OLIVE = rgbansi(Flavour.mocha().rosewater.rgb)
-GRAY = rgbansi(Flavour.mocha().mantle.rgb)
+RED = rgbansi(PALETTE.mocha.colors.red.rgb)
+GREEN = rgbansi(PALETTE.mocha.colors.green.rgb)
+BLUE = rgbansi(PALETTE.mocha.colors.blue.rgb)
+PURPLE = rgbansi(PALETTE.mocha.colors.mauve.rgb)
+ORANGE = rgbansi(PALETTE.mocha.colors.peach.rgb)
+BROWN = rgbansi(PALETTE.mocha.colors.maroon.rgb)
+CYAN = rgbansi(PALETTE.mocha.colors.sky.rgb)
+PINK = rgbansi(PALETTE.mocha.colors.pink.rgb)
+OLIVE = rgbansi(PALETTE.mocha.colors.rosewater.rgb)
+GRAY = rgbansi(PALETTE.mocha.colors.mantle.rgb)
 
 # Defining variables
 xvalues = [] # Labels for each bar
