@@ -11,11 +11,11 @@ Simple CLI program to make line and bar plots. Made for a formative activity at 
 
 ## Installation
 ### Requirements
-- Python 3.11.6 or newer
+- Python 3.11.9 or newer
 - Colorama 0.4.6 or newer
-- Catppuccin 1.3.2 or newer
-- Matplotlib 3.8.0 or newer
-- Numpy 1.26.1 or newer
+- Catppuccin 2.2.0 or newer
+- Matplotlib 3.8.4 or newer
+- Numpy 1.26.4 or newer
 - Linux or MacOS (See usage for Widnows)
 
 ### Python environment
