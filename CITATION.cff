@@ -15,5 +15,4 @@ authors:
 repository-code: 'https://github.com/EuroNutellaMan/LorPlot'
 abstract: Simple CLI program to make line and bar plots.
 license: MIT
-version: 1.0.0
 date-released: '2024-02-27'
