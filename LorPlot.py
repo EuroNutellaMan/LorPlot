@@ -28,27 +28,20 @@ lineplotter = install_dir + '/lineplotter.py'
 barplotter = install_dir + '/barplotter.py'
 csvfile = install_dir + '/plot.csv'
 
-# Check that plot.csv exists
-if not os.path.exists(csvfile):
-    print(f"plot.csv not found, creating file now!")
-    try:
-        with open(csvfile, 'w'):
-            pass
-        print(f"CSV file created successfully at: {csvfile}")
-    except Exception as e:
-        print(f"Failed to create the CSV file: {e}")
-    print(f"Please write values in {csvfile} before using the program!")
-    print(f"Make sure to insert 3 values per row!")
-    exit
+# Opens the default editor for that file
+def edit_file(file):
+    os.system(f"$EDITOR {file}")
 
 # Print out values in plot.csv
 def reviewer():
+    print("Reviewing the plot csv file")
     missing_stdev = 0
     invalid_values = 0
     print(f"Reading {csvfile}")
     with open(csvfile, "r") as file:
         lines = file.readlines()
     os.system('clear')
+    print(f"{GREEN}plot.csv review:")
     updated_lines = []
     for line in lines:
         line = line.strip("\n")
@@ -70,14 +63,15 @@ def reviewer():
         with open(csvfile, "w") as file:
             for line in updated_lines:
                 file.write(f"{line}\n")
-        proceed = input("Press enter to go back to selection: ")
-        selector()
+        proceed = input("Press enter to continue! ")
     elif bool(invalid_values):
         print(f"{RED}One or more rows are invalid, please edit the csv file to fix this!")
+        answer = input(f"{YELLOW}Edit the csv file? [y to edit; anything else will quit]: ").lower()
+        if answer == "y":
+            edit_file(csvfile)
     else:
         print(f"{GREEN}Everything seems in order!")
-        proceed = input("Press enter to go back to selection: ")
-        selector()
+        proceed = input("Press enter to continue! ")
 
 # Function to choose type of graph
 def selector():
@@ -85,7 +79,8 @@ def selector():
     print(YELLOW + 'Select graph style')
     print(GREEN + '1: Line plot')
     print(BLUE + '2: Bar plot')
-    print(YELLOW + '9: Review plot.csv')
+    print(YELLOW + '8: Edit plot.csv')
+    print(YELLOW + '9: Review plot.csv again')
     print(RED + '0: Exit')
     choice = input('Select option [1-2, 0]: ')
     if choice == '0': # Exits the program
@@ -94,8 +89,12 @@ def selector():
         subprocess.Popen(['python3', lineplotter]).wait()
     elif choice == '2': # Starts the bar plotter
         subprocess.Popen(['python3', barplotter]).wait()
+    elif choice == '8':
+        edit_file(csvfile)
+        selector()
     elif choice == '9':
         reviewer()
+        selector()
     else: # Restarts in case of bad prompt from user
         print(RED + 'Invalid input! Try again!')
         print(RED + 'Restarting in 3...')
@@ -106,5 +105,24 @@ def selector():
         time.sleep(1)
         selector()
 
-# Executes funciton to select graph type
+# Check that plot.csv exists
+if not os.path.exists(csvfile):
+    print(f"plot.csv not found, creating file now!")
+    try:
+        with open(csvfile, 'w'):
+            pass
+        print(f"CSV file created successfully at: {csvfile}")
+    except Exception as e:
+        print(f"Failed to create the CSV file: {e}")
+    print(f"Please write values in {csvfile} before using the program!")
+    print(f"Make sure to insert 3 values per row!")
+    answer = input(f"{YELLOW}Edit the csv file? [y to edit; anything else will quit]: ").lower()
+    if answer == "y":
+        edit_file(csvfile)
+    else:
+        print(f'{RED}Exiting!')
+        exit
+
+# Executes funcitons to review and select graph type
+reviewer()
 selector()
