@@ -43,16 +43,20 @@ if not os.path.exists(csvfile):
 
 # Print out values in plot.csv
 def reviewer():
-    missing_value = 0
+    missing_stdev = 0
+    invalid_values = 0
     print(f"Reading {csvfile}")
     with open(csvfile, "r") as file:
         lines = file.readlines()
     os.system('clear')
+    updated_lines = []
     for line in lines:
+        line = line.strip("\n")
         check_values = line.split(',')
         if len(check_values) != 3:
-            print(f"{RED}{line} INVALID AMOUNT OF VALUES! Must be 3!")
-            missing_value = 1
+            line = line + ",0"
+            print(f"{YELLOW}{line} MISSING ST. DEV! Assigning 0 to it.")
+            missing_stdev = 1
         else:
             try:
                 float(check_values[2])
@@ -60,8 +64,15 @@ def reviewer():
                 print(f"{GREEN}{line}")
             except:
                 print(f"{RED}{line} INVALID VALUES! 2nd and 3rd column must be numbers!")
-                missing_value = 1
-    if bool(missing_value):
+                invalid_values = 1
+        updated_lines.append(line)
+    if bool(missing_stdev):
+        with open(csvfile, "w") as file:
+            for line in updated_lines:
+                file.write(f"{line}\n")
+        proceed = input("Press enter to go back to selection: ")
+        selector()
+    elif bool(invalid_values):
         print(f"{RED}One or more rows are invalid, please edit the csv file to fix this!")
     else:
         print(f"{GREEN}Everything seems in order!")

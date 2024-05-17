@@ -22,7 +22,7 @@ Simple CLI program to make line and bar plots. Made for a formative activity at 
 0. Create and enter your python environment if you haven't already (optional except in some linux distributions)
 ```
 python -m venv /path/to/environment
-source /path/to/environment/bin/activate # On Linux or MacOS
+source /path/to/environment/bin/activate
 ```
 1. Clone this repository wherever
 ```
@@ -36,7 +36,7 @@ pip install colorama catppuccin matplotlib numpy
 ```
 3. You will find the program in **/path/to/installation/LorPlot**
 
-### NixOS 23.11 or newer
+### NixOS 24.05 or newer
 1. Install dependencies via configuration file (or preferred method)
 ```
 environment.systemPackages = with pkgs; [
@@ -59,7 +59,6 @@ git clone https://github.com/EuroNutellaMan/LorPlot.git
 Write the data in the csv file, with the first column being values for x (line plot) or labels (bar plot), the second column being values for the y axis, and the third column being the standard deviation.
 On your preferred terminal run:
 
-**Linux and macOS:**
 ```
 python3 /path/to/installation/LorPlot/LorPlot.py
 ```
