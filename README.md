@@ -16,7 +16,7 @@ Simple CLI program to make line and bar plots. Made for a formative activity at 
 - Catppuccin 2.2.0 or newer
 - Matplotlib 3.8.4 or newer
 - Numpy 1.26.4 or newer
-- Linux or MacOS (See usage for Widnows)
+- Linux or MacOS (on Windows you have to use WSL)
 
 ### Python environment
 0. Create and enter your python environment if you haven't already (optional except in some linux distributions)
@@ -32,7 +32,7 @@ cd LorPlot
 ```
 2. Install dependencies
 ```
-pip install -r requirements.txt
+pip install colorama catppuccin matplotlib numpy 
 ```
 3. You will find the program in **/path/to/installation/LorPlot**
 
@@ -64,13 +64,6 @@ On your preferred terminal run:
 python3 /path/to/installation/LorPlot/LorPlot.py
 ```
 
-**Windows:**
-
-NOTE: For windows the code needs to be modified with \ instead of / in all paths in all files first. It is recommended to use WSL instead.
-```
-python C:\\path\to\installation\LorPlot\LorPlot.py
-```
-
 ### Bar plot
 Add data to the plot.csv file in a way where column A contains each bar's label, column B contains its value and column C contains the standard deviation. Each row is a new bar.
 
@@ -90,7 +83,7 @@ Add data to the plot.csv file in a way where column A contains the values of the
 <image src=./Examples/LinePlotResult.png>
 
 ## Notes
-This program was only tested on NixOS 23.11 so far.
+This program was only tested on NixOS unstable and Fedora 40 so far.
 
 It is recommended to set up an alias, for terminals using the bash shell this can be done by adding:
 ```
