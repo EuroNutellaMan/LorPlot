@@ -68,16 +68,12 @@ Add data to the plot.csv file in a way where column A contains each bar's label,
 
 <image src=./Examples/BarPlotCsv.png>
 
-<image src=./Examples/BarPlot.gif>
-
 <image src=./Examples/BarPlotResult.png>
 
 ### Line plot
 Add data to the plot.csv file in a way where column A contains the values of the X axis for every line, column B contains their values for the Y axis, and column C contains the standard deviation. Each time a 0 is encountered in column A a new line starts.
 
 <image src=./Examples/LinePlotCsv.png>
-
-<image src=./Examples/LinePlot.gif>
 
 <image src=./Examples/LinePlotResult.png>
 
