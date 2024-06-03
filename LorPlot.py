@@ -42,6 +42,8 @@ def reviewer():
         lines = file.readlines()
     os.system('clear')
     print(f"{GREEN}plot.csv review:")
+    print(f"{GREEN}label/x, y, std-dev")
+    print(f"{GREEN}-------------------")
     updated_lines = []
     for line in lines:
         line = line.strip("\n")
@@ -63,13 +65,16 @@ def reviewer():
         with open(csvfile, "w") as file:
             for line in updated_lines:
                 file.write(f"{line}\n")
+        print(f"{GREEN}-------------------")
         proceed = input("Press enter to continue! ")
     elif bool(invalid_values):
+        print(f"{GREEN}-------------------")
         print(f"{RED}One or more rows are invalid, please edit the csv file to fix this!")
         answer = input(f"{YELLOW}Edit the csv file? [y to edit; anything else will quit]: ").lower()
         if answer == "y":
             edit_file(csvfile)
     else:
+        print(f"{GREEN}-------------------")
         print(f"{GREEN}Everything seems in order!")
         proceed = input("Press enter to continue! ")
 
