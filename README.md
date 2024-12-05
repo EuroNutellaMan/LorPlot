@@ -1,5 +1,7 @@
 # LorPlot
 
+NOTE: This repository has been moved to [codeberg](https://codeberg.org/EuroNutellaMan/LorPlot)
+
 ## Introduction
 Simple CLI program to make line and bar plots. Made for a formative activity at UNIFI.
 
